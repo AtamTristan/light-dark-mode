@@ -10,6 +10,10 @@ const image3 = document.getElementById('image3');
 
 const textBox = document.getElementById('text-box');
 
+
+const DARK_THEME = 'dark';
+const LIGHT_THEME = 'light';
+
 // Dark or Light Images
 function imageMode(color){
     image1.src = `img/undraw_proud_coder_${color}.svg`;
@@ -30,16 +34,16 @@ function toggleDarkLightMode(light){
 
 }
 
-// Switch Theme Dinamically
+// Switch Theme Dynamically
 function switchTheme(event){
     if (event.target.checked){
         document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
-        toggleDarkLightMode('dark');
+        toggleDarkLightMode(DARK_THEME);
     }else {
         document.documentElement.setAttribute('data-theme', 'light');
         localStorage.setItem('theme', 'light');
-        toggleDarkLightMode('light');
+        toggleDarkLightMode(LIGHT_THEME);
     }
 }
 
@@ -54,6 +58,6 @@ if (currentTheme){
 
     if (currentTheme === 'dark'){
         toggleSwitch.checked = true;
-        toggleDarkLightMode('dark');
+        toggleDarkLightMode(DARK_THEME);
     }
 }
