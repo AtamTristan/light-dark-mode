@@ -17,8 +17,11 @@ function imageMode(color){
     image3.src = `img/undraw_conceptual_idea_${color}.svg`;
 }
 
-function toggleDarkLightMode(Light){
-        const isLight = (Light === 'light');
+function toggleDarkLightMode(light){
+        if (light !== 'light' && light !== 'dark'){
+            throw "Light is neither light, nor dark!"
+        }
+        const isLight = (light === 'light');
         nav.style.backgroundColor = isLight ? 'rgb(255 255 255 / 50%)' : 'rgb(0 0 0 / 50%)';
         textBox.style.backgroundColor = isLight ? 'rgb(0 0 0 / 50%)': 'rgb(255 255 255 / 50%)';
         toggleIcon.children[0].textContent = isLight ? 'Light Mode':'Dark Mode';
