@@ -61,3 +61,18 @@ if (currentTheme){
         toggleDarkLightMode(DARK_THEME);
     }
 }
+
+// Consent
+const consentButton = document.getElementById('consent-button');
+const cookieConsent = document.getElementById('cookie-consent');
+
+consentButton.addEventListener('click', () => {
+    cookieConsent.style.display = 'none';
+    localStorage.setItem('cookie-consent', 'accepted');
+});
+
+// Check Local Storage for Cookie Consent
+const currentCookieConsent = localStorage.getItem('cookie-consent');
+if (currentCookieConsent === 'accepted') {
+    cookieConsent.style.display = 'none';
+}
